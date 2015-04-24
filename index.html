@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>IMPACT Day 2015</title>
+    <link rel="icon" type="image/ico" href="icon/deloitte.ico"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-switch.css" rel="stylesheet">
+    <!-- Add custom CSS here -->
+    <link href="css/sb-admin.css" rel="stylesheet">
+    <link rel="stylesheet" href="font-awesome-4.3.0/css/font-awesome.min.css">
+    <!-- Map Div -->
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script src="js/mapscript.js"></script>
+
+    <!-- Leaflet Map Div -->
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
+    <script src="js/jquery-1.11.1.min.js"></script>
+
+
+    <!-- Google Analytics -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-50336275-1', 'deloitte-geospatial.com');
+        ga('send', 'pageview');
+    </script>
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <img src="img/deloitte2.png" class="navbar-brand" href="index.html">
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav navbar-right navbar-user">
+                <li class="dropdown impactDay-dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-flag"></i> Impact Day <b
+                            class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li style="margin:5px 25px;">
+                            <h4>About</h4>
+                            <span class="impact">IMPACT Day</span> is <span class="del">Deloitte's</span> firm-wide day
+                            of service in
+                            which practitioners participate in locally driven projects to support community needs. More
+                            than a day of
+                            volunteerism, <span class="impact">IMPACT Day</span> is a celebration of <span class="del">Deloitte's</span>
+                            year-round commitment to community involvement.
+
+                            <hr>
+
+                            <h4>Key Dates</h4>
+                            - Projects Posted: Friday, 4/24.<br>
+                            - Online Registration: Friday, 5/1 to Friday, 5/8.<br>
+                            - <span class="impact">IMPACT Day 2015</span>: Friday, June 6.
+
+                            <hr>
+
+                            <h4>Learn More</h4>
+
+                            <p>
+                                Greater Washington area practitioners can check out the <a
+                                    href="https://www.yammer.com/deloitte.com/#/threads/inGroup?type=in_group&feedId=1419576">IMPACT
+                                Day
+                                2014 Yammer Page</a> for more information or to post questions.
+                            </p>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="dropdown helper-dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-gear"></i> How To <b
+                            class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li style="margin:5px 25px;">
+                            <h4>About the Map:</h4>
+
+                            <p>
+                                The <span class="impact">IMPACT Day</span> map, built by <span
+                                    class="del">Deloitte's</span> <a
+                                    href="https://www.yammer.com/deloitte.com/#/threads/inGroup?type=in_group&feedId=280371">Geospatial
+                                Analytics Practice</a> provides a tool for practitioners to search for and learn about
+                                projects in their
+                                community.
+                            </p>
+                            <hr>
+
+                            <h4>How to use the Map:</h4>
+
+                            <p>
+                                <span class="impact">Select your city:</span> Use the <em>City</em> drop-down list to
+                                select the city
+                                where you will be making an <span class="impact">IMPACT</span>.
+                            </p>
+
+                            <p>
+                                <span class="impact">Filter by event type:</span> Use the <em>Social Cause</em>
+                                drop-down list to filter
+                                events by issue. You can also select the Skills-based Volunteering (SBV) option to see
+                                events that
+                                require specific skills. There is a collapsible legend in the bottom right corner that
+                                describes the
+                                icons.
+                            </p>
+
+                            <p>
+                                <span class="impact">Explore sites and register:</span> Click on an event icon to open a
+                                pop-up
+                                describing the volunteer opportunity and organization served. Click the register button
+                                to open a new
+                                window in <a
+                                    href="https://deloitte.angelpointsevs.com/handlers/home.aph">AngelPoints</a> to sign
+                                up.
+                                <em>Note</em> - you MUST be in a Deloitte office or log onto the VPN to open the
+                                AngelPoints site and
+                                register.
+
+                            </p>
+
+                            <p>
+                                <span class="impact">Other map features:</span> Use the Layers drop-down to add other
+                                features to the
+                                map including traffic, bike lanes, and transit information.
+                            </p>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="dropdown messages-dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-globe"></i> City <b
+                            class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li class="message-preview">
+                            <a href="#" onclick="relocate(38.8951, -77.0367)">
+                                <span class="avatar"><img src="img/dc.png" style="height:50px;width:50px"></span>
+                                <span class="name">Washington:</span>
+                                <span class="message">108 sites available</span>
+                                <span class="time"><i class="fa fa-users"></i> 4349 volunteer positions</span>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li class="message-preview">
+                            <a href="#" onclick="relocate(33.7550, -84.3900)">
+                                <span class="avatar"><img src="img/atl.png" style="height:50px;width:50px"></span>
+                                <span class="name">Atlanta:</span>
+                                <span class="message">32 sites available</span>
+                                <span class="time"><i class="fa fa-users"></i> 1493 volunteer positions</span>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li class="message-preview">
+                            <a href="#" onclick="relocate(41.850033, -87.6500523)">
+                                <span class="avatar"><img src="img/chi.png" style="height:50px;width:50px"></span>
+                                <span class="name">Chicago</span>
+                                <span class="message">48 sites available</span>
+                                <span class="time"><i class="fa fa-users"></i> 1783 volunteer positions</span>
+                            </a>
+                        </li>
+                        <!--
+                                <li class="divider"></li>
+                                <li class="message-preview">
+                                    <a href="#" onclick="relocate(44.9833, -93.2667)">
+                                        <span class="avatar"><img src="img/mn.png" style="height:50px;width:50px"></span>
+                                        <span class="name">Minneapolis</span>
+                                        <span class="message">35 sites available</span>
+                                        <span class="time"><i class="fa fa-users"></i> 210 volunteer positions</span>
+                                    </a>
+                                </li>
+                        -->
+                        <li class="divider"></li>
+                        <li class="message-preview">
+                            <a href="#" onclick="relocate(29.7628, -95.3831)">
+                                <span class="avatar"><img src="img/hou.png" style="height:50px;width:50px"></span>
+                                <span class="name">Houston</span>
+                                <span class="message">10 sites available</span>
+                                <span class="time"><i class="fa fa-users"></i> 915 volunteer positions</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li class="dropdown category-dropdown">
+                    <a href="#" class="dropdown-toggle " data-toggle="dropdown"><i class="fa fa-filter"></i> Social
+                        Cause <b
+                                class="caret"></b></a>
+                    <ul class="dropdown-menu dropdown-menu-form">
+                        <li class="impact" style="padding:5px"></li>
+                        <li>
+                            <label class="checkbox">
+                                <input type="checkbox" checked name="category" id="animals_check" value="Animals"
+                                       class="czech">
+                                Animals
+                            </label>
+                        </li>
+                        <li>
+                            <label class="checkbox">
+                                <input type="checkbox" checked name="category" id="civic_check"
+                                       value="Civic & Public Affairs"
+                                       class="czech">
+                                Civic & Public Affairs
+                            </label>
+                        </li>
+                        <li>
+                            <label class="checkbox">
+                                <input type="checkbox" checked name="category" id="comm_check"
+                                       value="Community & Economic Development"
+                                       class="czech">
+                                Community Development
+                            </label>
+                        </li>
+                        <li>
+                            <label class="checkbox">
+                                <input type="checkbox" checked name="category" id="culture_check" value="Culture & Arts"
+                                       class="czech">
+                                Culture & Arts
+                            </label>
+                        </li>
+                        <li>
+                            <label class="checkbox">
+                                <input type="checkbox" checked name="category" id="disaster_check"
+                                       value="Disaster Relief"
+                                       class="czech">
+                                Disaster Relief
+                            </label>
+                        </li>
+                        <li>
+                            <label class="checkbox">
+                                <input type="checkbox" checked name="category" id="education_check" value="Education"
+                                       class="czech">
+                                Education
+                            </label>
+                        </li>
+                        <li>
+                            <label class="checkbox">
+                                <input type="checkbox" checked name="category" id="environment_check"
+                                       value="Environment" class="czech">
+                                Environment
+                            </label>
+                        </li>
+                        <li>
+                            <label class="checkbox">
+                                <input type="checkbox" checked name="category" id="health_check"
+                                       value="Health & Human Services"
+                                       class="czech">
+                                Health
+                            </label>
+                        </li>
+                        <li>
+                            <label class="checkbox">
+                                <input type="checkbox" checked name="category" id="armed_check" value="Veterans"
+                                       class="czech">
+                                Veterans
+                            </label>
+                        </li>
+                        <hr>
+                        <li class="impact" style="padding:5px">Skills Based Volunteering</li>
+                        <li>
+                            <label class="checkbox">
+                                <input type="checkbox" name="sbv" id="sbv_check" value="Yes" class="czech">
+                                Only SBV
+                            </label>
+                        </li>
+
+                    </ul>
+                </li>
+
+                <li class="dropdown layers-dropdown">
+                    <a href="#" class="dropdown-toggle " data-toggle="dropdown"><i class="fa fa-bars"></i> Layers <b
+                            class="caret"></b></a>
+                    <ul class="dropdown-menu dropdown-menu-form">
+                        <li class="impact" style="padding:5px"></li>
+                        <li>
+                            <label class="checkbox">
+                                <input style="margin-left:0" type="checkbox" id="traffic_check" name="category"
+                                       class="czech">
+                                Current Traffic
+                            </label>
+                        </li>
+                        <li>
+                            <label class="checkbox">
+                                <input style="margin-left:0" type="checkbox" id="rail_check" name="category"
+                                       class="czech">
+                                Rail/Metro
+                            </label>
+                        </li>
+                        <li>
+                            <label class="checkbox">
+                                <input style="margin-left:0" type="checkbox" id="bike_check" name="category"
+                                       class="czech">
+                                Bike Paths
+                            </label>
+                        </li>
+                        <li>
+                            <label class="checkbox">
+                                <input style="margin-left:0" type="checkbox" id="congress_check" name="category"
+                                       class="czech">
+                                Districts
+                            </label>
+                        </li>
+
+                    </ul>
+                </li>
+
+            </ul>
+
+        </div>
+    </nav>
+
+
+    <div id="map" style="height:100%" class="leaflet-container leaflet-fade-anim"></div>
+    <!--<div id="map_canvas"></div>-->
+    <!--<div style='position: absolute; bottom: 14px; right:0; z-index: 99;  padding:0 10px 0 10px' id='legendCollapse'>-->
+    <!--<h2>-->
+    <!--<button class='btn btn-primary' id='legendButton' style='margin-left:35px'><i class='fa fa-minus-circle'></i>-->
+    <!--</button>-->
+    <!--</h2>-->
+    <!--</div>-->
+    <!--<div id="legend"><h4>Legend</h4></div>-->
+
+
+</div>
+<!-- /#wrapper -->
+
+<!-- JavaScript -->
+<script src="js/leaflet.js"></script>
+<script>
+    var map = L.map('map').setView([38.9047, -77.0164], 10);
+    L.tileLayer('http://{s}.tiles.mapbox.com/v3/zwhitman.l4g921m8/{z}/{x}/{y}.png', {
+        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+        maxZoom: 18
+    }).addTo(map);
+
+    var district_boundary = new L.geoJson();
+    district_boundary.addTo(map);
+
+    $.ajax({
+        dataType: "json",
+        url: "https://services1.arcgis.com/fcrLbZIfZI20fNqr/arcgis/rest/services/Volunteer_2015/FeatureServer/0/query?where=&objectIds=&time=&geometry=%7B%22xmin%22%3A-15914952.527620565%2C%22ymin%22%3A1983252.9978282703%2C%22xmax%22%3A-1953270.6891671233%2C%22ymax%22%3A4918434.883978258%2C%22spatialReference%22%3A%7B%22wkid%22%3A102100%7D%7D&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&distance=&units=esriSRUnit_Meter&outFields=*&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&outSR=%7Bwkid%3A+4326%7D&returnIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&quantizationParameters=&f=pgeojson&token=",
+        success: function (data) {
+            $(data.features).each(function (key, data) {
+                district_boundary.addData(data);
+            });
+        }
+    }).error(function () {
+    });
+
+
+</script>
+<script src="js/bootstrap.min.js"></script>
+
+<!-- Prevent dropdown rollup when querying layers -->
+<script src="js/dropdownMenu.js"></script>
+
+<!-- Legend Button Toggle Script -->
+<script src="js/legendButton.js"></script>
+
+<!-- Bootstrap toggle switch -->
+<script src="js/bootstrap-switch.js"></script>
+<script src="js/styledBootstrapToggleSwitch.js"></script>
+</body>
+</html>

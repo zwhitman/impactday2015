@@ -1,0 +1,233 @@
+/* 
+Author: Start Bootstrap - http://startbootstrap.com
+'SB Admin' HTML Template by Start Bootstrap
+
+All Start Bootstrap themes are licensed under Apache 2.0. 
+For more info and more free Bootstrap 3 HTML themes, visit http://startbootstrap.com!
+*/
+
+/* ATTN: This is mobile first CSS - to update 786px and up screen width use the media query near the bottom of the document! */
+
+/* Global Styles */
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    padding-top: 50px;
+    height: 100%;
+    width: 100%;
+}
+
+#wrapper {
+    padding-left: 0;
+    padding-right: 0;
+    height: 100%;
+}
+
+#page-wrapper {
+    width: 100%;
+    height: 100% padding : 0 px 0 px;
+}
+
+.impact {
+    font-weight: bold;
+    color: rgb(0, 39, 118);
+}
+
+.del {
+    font-weight: bold;
+    color: rgb(146, 212, 0);
+}
+
+.radio, .checkbox {
+    min-height: 20px;
+    padding-left: 7px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* Map Div */
+#map_canvas {
+    height: 100%;
+    width: 100%;
+}
+
+#legend {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 0 10px 10px 10px;
+}
+
+/* Nav Messages */
+
+.messages-dropdown .dropdown-menu .message-preview .avatar,
+.messages-dropdown .dropdown-menu .message-preview .name,
+.messages-dropdown .dropdown-menu .message-preview .message,
+.messages-dropdown .dropdown-menu .message-preview .time {
+    display: block;
+}
+
+.messages-dropdown .dropdown-menu .message-preview .avatar {
+    float: left;
+    margin-right: 15px;
+}
+
+.messages-dropdown .dropdown-menu .message-preview .name {
+    font-weight: bold;
+}
+
+.messages-dropdown .dropdown-menu .message-preview .message {
+    font-size: 12px;
+}
+
+.messages-dropdown .dropdown-menu .message-preview .time {
+    font-size: 12px;
+}
+
+/* Nav Announcements */
+
+.announcement-heading {
+    font-size: 50px;
+    margin: 0;
+}
+
+.announcement-text {
+    margin: 0;
+}
+
+/* Table Headers */
+
+table.tablesorter thead {
+    cursor: pointer;
+}
+
+table.tablesorter thead tr th:hover {
+    background-color: #f5f5f5;
+}
+
+/* Flot Chart Containers */
+
+.flot-chart {
+    display: block;
+    height: 400px;
+}
+
+.flot-chart-content {
+    width: 100%;
+    height: 100%;
+}
+
+/* Edit Below to Customize W0dths > 768px */
+@media (min-width: 768px) {
+
+    /* Wrappers */
+    #wrapper {
+        padding-left: 0;
+    }
+
+    #page-wrapper {
+        padding: 15px 25px;
+    }
+
+    /* Side Nav */
+    .side-nav {
+        margin-left: -275px;
+        left: 275px;
+        width: 275px;
+        position: fixed;
+        top: 50px;
+        height: 100%;
+        border-radius: 0;
+        border: none;
+        background-color: #f9f9f9;
+        overflow-y: auto;
+    }
+
+    /* Bootstrap Default Overrides - Customized Dropdowns for the Side Nav */
+    .side-nav > li.dropdown > ul.dropdown-menu {
+        position: relative;
+        min-width: 275px;
+        margin: 0;
+        padding: 0;
+        border: none;
+        border-radius: 0;
+        background-color: transparent;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+    }
+
+    .side-nav > li.dropdown > ul.dropdown-menu > li > a {
+        color: #999999;
+        padding: 15px 15px 15px 25px;
+    }
+
+    .side-nav > li.dropdown > ul.dropdown-menu > li > a:hover,
+    .side-nav > li.dropdown > ul.dropdown-menu > li > a.active,
+    .side-nav > li.dropdown > ul.dropdown-menu > li > a:focus {
+        color: #fff;
+        background-color: #080808;
+    }
+
+    .side-nav > li > a {
+        width: 275px;
+    }
+
+    .navbar-inverse .navbar-nav > li > a:hover,
+    .navbar-inverse .navbar-nav > li > a:focus {
+        background-color: #080808;
+    }
+
+    /* Nav Messages */
+    .messages-dropdown .dropdown-menu {
+        min-width: 260px;
+        background: rgba(255, 255, 255, .85);
+    }
+
+    .messages-dropdown .dropdown-menu li a {
+        white-space: normal;
+    }
+
+    .impactDay-dropdown .dropdown-menu {
+        min-width: 360px;
+        background: rgba(255, 255, 255, .85);
+    }
+
+    .helper-dropdown .dropdown-menu {
+        min-width: 460px;
+        background: rgba(255, 255, 255, .85);
+    }
+
+    .category-dropdown .dropdown-menu {
+        min-width: 322px;
+        background: rgba(255, 255, 255, .85);
+    }
+
+    .layers-dropdown .dropdown-menu {
+        min-width: 252px;
+        background: rgba(255, 255, 255, .85);
+    }
+
+    .navbar-collapse {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+
+    .checkbox {
+        display: block;
+        margin-left: 15px;
+        margin-right: 15px;
+        vertical-align: middle;
+    }
+
+    .checkbox > .czech {
+        height: 20px;
+        width: 20px;
+    }
+
+    .check_margin {
+        margin: 0 0 0 15px;
+    }
+}
+
