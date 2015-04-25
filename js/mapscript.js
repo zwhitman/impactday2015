@@ -21,7 +21,7 @@ function toggleLayer(this_layer) {
 
 function initialize() {
     where = generateWhere;
-    tableId = "1snOwQvAsyXbnnkLq5X18GRQvAeon2j49JxMfNej0";
+    //tableId = "1snOwQvAsyXbnnkLq5X18GRQvAeon2j49JxMfNej0";
     map_canvas = document.getElementById('map_canvas');
     map_options = {
         center: dc,
@@ -35,6 +35,7 @@ function initialize() {
             templateId: 3
         }
     });
+    map.data.loadGeoJson("https://services1.arcgis.com/fcrLbZIfZI20fNqr/arcgis/rest/services/Volunteer_2015/FeatureServer/0/query?where=&objectIds=&time=&geometry=%7B%22xmin%22%3A-15914952.527620565%2C%22ymin%22%3A1983252.9978282703%2C%22xmax%22%3A-1953270.6891671233%2C%22ymax%22%3A4918434.883978258%2C%22spatialReference%22%3A%7B%22wkid%22%3A102100%7D%7D&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&distance=&units=esriSRUnit_Meter&outFields=*&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&outSR=%7Bwkid%3A+4326%7D&returnIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&quantizationParameters=&f=pgeojson&token=");
     trafficLayer = new google.maps.TrafficLayer();
     transitLayer = new google.maps.TransitLayer();
     bikeLayer = new google.maps.BicyclingLayer();

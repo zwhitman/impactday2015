@@ -16,11 +16,11 @@
     <link href="css/sb-admin.css" rel="stylesheet">
     <link rel="stylesheet" href="font-awesome-4.3.0/css/font-awesome.min.css">
     <!-- Map Div -->
-    <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-    <script src="js/mapscript.js"></script>
+    <!--<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>-->
+    <!--<script src="js/mapscript.js"></script>-->
 
     <!-- Leaflet Map Div -->
-    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
+    <link rel="stylesheet" href="css/leaflet.css"/>
     <script src="js/jquery-1.11.1.min.js"></script>
 
 
@@ -147,11 +147,11 @@
 
                             </p>
 
-                            <p>
-                                <span class="impact">Other map features:</span> Use the Layers drop-down to add other
-                                features to the
-                                map including traffic, bike lanes, and transit information.
-                            </p>
+                            <!--<p>-->
+                                <!--<span class="impact">Other map features:</span> Use the Layers drop-down to add other-->
+                                <!--features to the-->
+                                <!--map including traffic, bike lanes, and transit information.-->
+                            <!--</p>-->
                         </li>
                     </ul>
                 </li>
@@ -177,15 +177,15 @@
                                 <span class="time"><i class="fa fa-users"></i> 1493 volunteer positions</span>
                             </a>
                         </li>
-                        <li class="divider"></li>
-                        <li class="message-preview">
-                            <a href="#" onclick="relocate(41.850033, -87.6500523)">
-                                <span class="avatar"><img src="img/chi.png" style="height:50px;width:50px"></span>
-                                <span class="name">Chicago</span>
-                                <span class="message">48 sites available</span>
-                                <span class="time"><i class="fa fa-users"></i> 1783 volunteer positions</span>
-                            </a>
-                        </li>
+                        <!--<li class="divider"></li>-->
+                        <!--<li class="message-preview">-->
+                            <!--<a href="#" onclick="relocate(41.850033, -87.6500523)">-->
+                                <!--<span class="avatar"><img src="img/chi.png" style="height:50px;width:50px"></span>-->
+                                <!--<span class="name">Chicago</span>-->
+
+                                <!--<span class="time"><i class="fa fa-users"></i> 1783 volunteer positions</span>-->
+                            <!--</a>-->
+                        <!--</li>-->
                         <!--
                                 <li class="divider"></li>
                                 <li class="message-preview">
@@ -198,14 +198,14 @@
                                 </li>
                         -->
                         <li class="divider"></li>
-                        <li class="message-preview">
-                            <a href="#" onclick="relocate(29.7628, -95.3831)">
-                                <span class="avatar"><img src="img/hou.png" style="height:50px;width:50px"></span>
-                                <span class="name">Houston</span>
-                                <span class="message">10 sites available</span>
-                                <span class="time"><i class="fa fa-users"></i> 915 volunteer positions</span>
-                            </a>
-                        </li>
+                        <!--<li class="message-preview">-->
+                            <!--<a href="#" onclick="relocate(29.7628, -95.3831)">-->
+                                <!--<span class="avatar"><img src="img/hou.png" style="height:50px;width:50px"></span>-->
+                                <!--<span class="name">Houston</span>-->
+                                <!--<span class="message">10 sites available</span>-->
+                                <!--<span class="time"><i class="fa fa-users"></i> 915 volunteer positions</span>-->
+                            <!--</a>-->
+                        <!--</li>-->
                     </ul>
                 </li>
 
@@ -225,7 +225,7 @@
                         </li>
                         <li>
                             <label class="checkbox">
-                                <input type="checkbox" checked name="category" id="civic_check"
+                                <input onclick="filterNew('Civic & Public Affairs')" type="checkbox" checked name="category" id="civic_check"
                                        value="Civic & Public Affairs"
                                        class="czech">
                                 Civic & Public Affairs
@@ -233,7 +233,7 @@
                         </li>
                         <li>
                             <label class="checkbox">
-                                <input type="checkbox" checked name="category" id="comm_check"
+                                <input onclick="filterNew('Community & Economic Development')"  type="checkbox" checked name="category" id="comm_check"
                                        value="Community & Economic Development"
                                        class="czech">
                                 Community Development
@@ -295,42 +295,42 @@
                     </ul>
                 </li>
 
-                <li class="dropdown layers-dropdown">
-                    <a href="#" class="dropdown-toggle " data-toggle="dropdown"><i class="fa fa-bars"></i> Layers <b
-                            class="caret"></b></a>
-                    <ul class="dropdown-menu dropdown-menu-form">
-                        <li class="impact" style="padding:5px"></li>
-                        <li>
-                            <label class="checkbox">
-                                <input style="margin-left:0" type="checkbox" id="traffic_check" name="category"
-                                       class="czech">
-                                Current Traffic
-                            </label>
-                        </li>
-                        <li>
-                            <label class="checkbox">
-                                <input style="margin-left:0" type="checkbox" id="rail_check" name="category"
-                                       class="czech">
-                                Rail/Metro
-                            </label>
-                        </li>
-                        <li>
-                            <label class="checkbox">
-                                <input style="margin-left:0" type="checkbox" id="bike_check" name="category"
-                                       class="czech">
-                                Bike Paths
-                            </label>
-                        </li>
-                        <li>
-                            <label class="checkbox">
-                                <input style="margin-left:0" type="checkbox" id="congress_check" name="category"
-                                       class="czech">
-                                Districts
-                            </label>
-                        </li>
+                <!--<li class="dropdown layers-dropdown">-->
+                    <!--<a href="#" class="dropdown-toggle " data-toggle="dropdown"><i class="fa fa-bars"></i> Layers <b-->
+                            <!--class="caret"></b></a>-->
+                    <!--<ul class="dropdown-menu dropdown-menu-form">-->
+                        <!--<li class="impact" style="padding:5px"></li>-->
+                        <!--<li>-->
+                            <!--<label class="checkbox">-->
+                                <!--<input style="margin-left:0" type="checkbox" id="traffic_check" name="category"-->
+                                       <!--class="czech">-->
+                                <!--Current Traffic-->
+                            <!--</label>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<label class="checkbox">-->
+                                <!--<input style="margin-left:0" type="checkbox" id="rail_check" name="category"-->
+                                       <!--class="czech">-->
+                                <!--Rail/Metro-->
+                            <!--</label>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<label class="checkbox">-->
+                                <!--<input style="margin-left:0" type="checkbox" id="bike_check" name="category"-->
+                                       <!--class="czech">-->
+                                <!--Bike Paths-->
+                            <!--</label>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<label class="checkbox">-->
+                                <!--<input style="margin-left:0" type="checkbox" id="congress_check" name="category"-->
+                                       <!--class="czech">-->
+                                <!--Districts-->
+                            <!--</label>-->
+                        <!--</li>-->
 
-                    </ul>
-                </li>
+                    <!--</ul>-->
+                <!--</li>-->
 
             </ul>
 
@@ -351,30 +351,221 @@
 
 </div>
 <!-- /#wrapper -->
+<style>
+    /*.leaflet-popup-content-wrapper {*/
+        /*width:100%;*/
+    /*}*/
+    /*.leaflet-popup-tip-container {*/
+        /*width:190px;*/
+        /*height:1115px;*/
+    /*}*/
+</style>
 
 <!-- JavaScript -->
 <script src="js/leaflet.js"></script>
+
+
+<!-- MarkerCluster -->
+<script src="js/leaflet.markercluster-src.js"></script>
+<link rel="stylesheet" href="css/MarkerCluster.css"/>
+<link rel="stylesheet" href="css/MarkerCluster.Default.css"/>
+
+<script src="js/bootstrap-switch.js"></script>
+
 <script>
     var map = L.map('map').setView([38.9047, -77.0164], 10);
     L.tileLayer('http://{s}.tiles.mapbox.com/v3/zwhitman.l4g921m8/{z}/{x}/{y}.png', {
-        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+//        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
         maxZoom: 18
     }).addTo(map);
 
-    var district_boundary = new L.geoJson();
-    district_boundary.addTo(map);
+    function getJson(url) {
+        return JSON.parse($.ajax({
+            type: 'GET',
+            url: url,
+            dataType: 'json',
+            global: false,
+            async:false,
+            success: function(data) {
+                return data;
+            }
+        }).responseText);
+    }
 
-    $.ajax({
-        dataType: "json",
-        url: "https://services1.arcgis.com/fcrLbZIfZI20fNqr/arcgis/rest/services/Volunteer_2015/FeatureServer/0/query?where=&objectIds=&time=&geometry=%7B%22xmin%22%3A-15914952.527620565%2C%22ymin%22%3A1983252.9978282703%2C%22xmax%22%3A-1953270.6891671233%2C%22ymax%22%3A4918434.883978258%2C%22spatialReference%22%3A%7B%22wkid%22%3A102100%7D%7D&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&distance=&units=esriSRUnit_Meter&outFields=*&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&outSR=%7Bwkid%3A+4326%7D&returnIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&quantizationParameters=&f=pgeojson&token=",
-        success: function (data) {
-            $(data.features).each(function (key, data) {
-                district_boundary.addData(data);
-            });
+//    var filterParams = ['Veterans', 'Community & Economic Development', 'Education'];
+    var filterParams = [
+        'Animals',
+        'Civic & Public Affairs',
+        'Community & Economic Development',
+        'Culture & Arts',
+        'Disaster Relief',
+        'Education',
+        'Environment',
+        'Health & Human Services',
+        'Veterans',
+        ' '
+    ];
+
+    function generateWhere() {
+        var sbv = document.getElementsByName('sbv');
+        if (sbv[0].checked) {
+            sbv2 = "Yes";
+        } else {
+            sbv2 = "No";
         }
-    }).error(function () {
+
+        filter = [];
+        categories = document.getElementsByName('category');
+        for (var i = 0, category; category = categories[i]; i++) {
+            if (category.checked) {
+                var categoryName = category.value.replace(/'/g, '\\\'');
+                filter.push(categoryName);
+            }
+        }
+        return filter
+//        var where = [];
+//        if (filter.length && sbv2 == "Yes") {
+//            where = [filter.join(',')];
+//        }
+//        else if (filter.length && sbv2 == "No") {
+//            where = [filter];
+////            where = "'Social Cause' IN (" + filter.join(',') + ')';
+//        }
+//        console.log(where);
+//        return where;
+    }
+
+
+
+    var jsonUrl = "https://services1.arcgis.com/fcrLbZIfZI20fNqr/arcgis/rest/services/Volunteer_2015/FeatureServer/0/query?where=&objectIds=&time=&geometry=%7B%22xmin%22%3A-15914952.527620565%2C%22ymin%22%3A1983252.9978282703%2C%22xmax%22%3A-1953270.6891671233%2C%22ymax%22%3A4918434.883978258%2C%22spatialReference%22%3A%7B%22wkid%22%3A102100%7D%7D&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&distance=&units=esriSRUnit_Meter&outFields=*&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&outSR=%7Bwkid%3A+4326%7D&returnIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&quantizationParameters=&f=geojson&token=";
+    var geoJsonData = getJson(jsonUrl);
+    var markers = new L.MarkerClusterGroup();
+    var geoJsonLayer = L.geoJson(geoJsonData, {
+        filter: function(feature) {
+            var split = feature.properties.CAUSE.split(", ");
+//            console.log(split);
+            for(i in filterParams){
+                if($.inArray(filterParams[i],split) != -1){
+                    return feature.properties.CAUSE
+                }
+            }
+        },
+        onEachFeature: function (feature, layer) {
+            layer.bindPopup("<h4>" + feature.properties.PRO_NAME + "</h4>" +
+            "<a href='Countdown/index.html'><button class='btn btn-default' style='width:100%'>REGISTER NOW" + "</button></a>" +
+            "<h6>" + feature.properties.DESC_ACT+"</h6>" +
+            "<h6>Address: " + feature.properties.ADDRESS +"</h6>" +
+            "<h6>Cause: " + feature.properties.CAUSE +"</h6>");
+        }
     });
 
+    markers.addLayer(geoJsonLayer);
+    map.addLayer(markers);
+
+    function filterNew(){
+//        filterParams = generateWhere();
+        markers.clearLayers();
+//        filterParams = [string];
+        filterParams = generateWhere();
+        var geoJsonLayer = L.geoJson(geoJsonData, {
+            filter: function(feature) {
+                var split = feature.properties.CAUSE.split(", ");
+//                console.log(split);
+                for(i in filterParams){
+                    if($.inArray(filterParams[i],split) != -1){
+                        return feature.properties.CAUSE
+                    }
+                }
+            },
+            onEachFeature: function (feature, layer) {
+                layer.bindPopup("<h4>" + feature.properties.PRO_NAME + "</h4>" +
+                "<a href='Countdown/index.html'><button class='btn btn-default' style='width:100%'>REGISTER NOW" + "</button></a>" +
+                "<h6>" + feature.properties.DESC_ACT+"</h6>" +
+                "<h6>Address: " + feature.properties.ADDRESS +"</h6>" +
+                "<h6>Cause: " + feature.properties.CAUSE +"</h6>");
+            }
+        });
+        console.log(filterParams);
+        markers.addLayer(geoJsonLayer);
+        map.addLayer(markers);
+    }
+
+    function relocate(lat, lon){
+        map.setView([lat,lon], 10)
+    }
+
+//    $("[name='sbv']").bootstrapSwitch('onText', 'YES');
+//    $("[name='sbv']").bootstrapSwitch('offText', 'NO');
+//    $("[name='sbv']").on('switchChange.bootstrapSwitch', function (event, state) {
+//        filterMap(layer, tableId, map);
+//    });
+
+    $("[id='animals_check']").bootstrapSwitch('labelText', '<img src="icon/agriculture.png" height="20px" width="20px">');
+    $("[id='animals_check']").on('switchChange.bootstrapSwitch', function (event, state) {
+        filterNew();
+//        generateWhere();
+//        filterMap(layer, tableId, map);
+    });
+
+    $("[id='comm_check']").bootstrapSwitch('labelText', '<img src="icon/realestate.png" height="20px" width="20px">');
+    $("[id='comm_check']").on('switchChange.bootstrapSwitch', function (event, state) {
+        filterNew();
+//        filterMap(layer, tableId, map);
+    });
+
+    $("[id='civic_check']").bootstrapSwitch('labelText', '<img src="icon/museum.png" height="20px" width="20px">');
+    $("[id='civic_check']").on('switchChange.bootstrapSwitch', function (event, state) {
+        filterNew();
+//        filterMap(layer, tableId, map);
+    });
+    $("[id='armed_check']").bootstrapSwitch('labelText', '<img src="icon/police.png" height="20px" width="20px">');
+    $("[id='armed_check']").on('switchChange.bootstrapSwitch', function (event, state) {
+        filterNew();
+    });
+
+    $("[id='disaster_check']").bootstrapSwitch('labelText', '<img src="icon/hospitals.png" height="20px" width="20px">');
+    $("[id='disaster_check']").on('switchChange.bootstrapSwitch', function (event, state) {
+        filterNew();
+    });
+    $("[id='education_check']").bootstrapSwitch('labelText', '<img src="icon/schools.png" height="20px" width="20px">');
+    $("[id='education_check']").on('switchChange.bootstrapSwitch', function (event, state) {
+        filterNew();
+    });
+
+    $("[id='health_check']").bootstrapSwitch('labelText', '<img src="icon/pharmacy_plus.png" height="20px" width="20px">');
+    $("[id='health_check']").on('switchChange.bootstrapSwitch', function (event, state) {
+        filterNew();
+    });
+
+    $("[id='environment_check']").bootstrapSwitch('labelText', '<img src="icon/tree.png" height="20px" width="20px">');
+    $("[id='environment_check']").on('switchChange.bootstrapSwitch', function (event, state) {
+        filterNew();
+    });
+
+    $("[id='culture_check']").bootstrapSwitch('labelText', '<img src="icon/arts.png" height="20px" width="20px">');
+    $("[id='culture_check']").on('switchChange.bootstrapSwitch', function (event, state) {
+        filterNew();
+    });
+
+    $("[id='traffic_check']").bootstrapSwitch('labelText', '<img src="icon/cabs.png" height="20px" width="20px">');
+    $("[id='traffic_check']").on('switchChange.bootstrapSwitch', function (event, state) {
+        filterNew();
+    });
+
+    $("[id='rail_check']").bootstrapSwitch('labelText', '<img src="icon/rail.png" height="20px" width="20px">');
+    $("[id='rail_check']").on('switchChange.bootstrapSwitch', function (event, state) {
+        filterNew();
+    });
+
+    $("[id='bike_check']").bootstrapSwitch('labelText', '<img src="icon/cycling.png" height="20px" width="20px">');
+    $("[id='bike_check']").on('switchChange.bootstrapSwitch', function (event, state) {
+        filterNew();
+    });
+
+    $("[id='congress_check']").bootstrapSwitch('labelText', '<img src="icon/govtbldgs.png" height="20px" width="20px">');
+    $("[id='congress_check']").on('switchChange.bootstrapSwitch', function (event, state) {
+        filterNew();
+    });
 
 </script>
 <script src="js/bootstrap.min.js"></script>
