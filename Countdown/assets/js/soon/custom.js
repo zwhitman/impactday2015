@@ -6,7 +6,7 @@ COMMING SOON PAGE
     * Set your date here  (YEAR, MONTH (0 for January/11 for December), DAY, HOUR, MINUTE, SECOND)
     * according to the GMT+0 Timezone
     **/
-    var launch = new Date(2014, 04, 02, 16, 00);
+    var launch = new Date(2015, 04, 01, 12, 00);
     /**
     * The script
     **/
@@ -19,7 +19,7 @@ COMMING SOON PAGE
     setDate();
     function setDate(){
         var now = new Date();
-        var launchEST = new Date(2014, 04, 02, 12, 00);
+        var launchEST = new Date(2015, 04, 01, 12, 00);
         if( launchEST < now ){
             days.html('<h1>0</H1><p>Day</p>');
             hours.html('<h1>0</h1><p>Hour</p>');
