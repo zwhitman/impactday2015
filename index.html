@@ -339,11 +339,15 @@
 
 
     <div id="map" style="height:100%" class="leaflet-container leaflet-fade-anim"></div>
+    <div id="legend" style="z-index:9999;position: fixed;bottom:0;right:0;height:300px;width:200px;background:rgba(255,255,255,.8)">
+        <h4>Legend</h4>
+    </div>
+    <button onclick="$.('#legend').slideToggle()" class='btn btn-default' id='legendButton' style='z-index:10000;position:fixed;bottom:0;right:0;height:50px;width:50px'>
+        <i class='fa fa-minus-circle'></i>
+    </button>
     <!--<div id="map_canvas"></div>-->
     <!--<div style='position: absolute; bottom: 14px; right:0; z-index: 99;  padding:0 10px 0 10px' id='legendCollapse'>-->
     <!--<h2>-->
-    <!--<button class='btn btn-primary' id='legendButton' style='margin-left:35px'><i class='fa fa-minus-circle'></i>-->
-    <!--</button>-->
     <!--</h2>-->
     <!--</div>-->
     <!--<div id="legend"><h4>Legend</h4></div>-->
@@ -354,6 +358,8 @@
 <style>
     /*.leaflet-popup-content-wrapper {*/
         /*width:100%;*/
+    /*}*/
+    /*.leaflet-popup {*/
     /*}*/
     /*.leaflet-popup-tip-container {*/
         /*width:190px;*/
@@ -422,7 +428,7 @@
                 filter.push(categoryName);
             }
         }
-        return filter
+        return filter;
 //        var where = [];
 //        if (filter.length && sbv2 == "Yes") {
 //            where = [filter.join(',')];
@@ -435,12 +441,44 @@
 //        return where;
     }
 
+    var agIcon = L.icon({
+        iconUrl: './icon/agriculture.png',
+        iconSize: [32, 37],
+        iconAnchor: [16, 37],
+        popupAnchor: [0, -28]
+    });
+
+    function style(feature) {
+        return {
+            fillColor: getColor(feature.properties.density),
+            weight: 2,
+            opacity: 1,
+            color: 'white',
+            dashArray: '3',
+            fillOpacity: 0.7
+        };
+    }
+
 
 
     var jsonUrl = "https://services1.arcgis.com/fcrLbZIfZI20fNqr/arcgis/rest/services/Volunteer_2015/FeatureServer/0/query?where=&objectIds=&time=&geometry=%7B%22xmin%22%3A-15914952.527620565%2C%22ymin%22%3A1983252.9978282703%2C%22xmax%22%3A-1953270.6891671233%2C%22ymax%22%3A4918434.883978258%2C%22spatialReference%22%3A%7B%22wkid%22%3A102100%7D%7D&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&distance=&units=esriSRUnit_Meter&outFields=*&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&outSR=%7Bwkid%3A+4326%7D&returnIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&quantizationParameters=&f=geojson&token=";
     var geoJsonData = getJson(jsonUrl);
     var markers = new L.MarkerClusterGroup();
     var geoJsonLayer = L.geoJson(geoJsonData, {
+//        style: function(feature) {
+//                return {icon:"./icon/agriculture.png"};
+//        },
+        pointToLayer: function(feature, latlng) {
+            var split = feature.properties.CAUSE.split(", ");
+            var smallIcon = new L.Icon({
+                iconSize: [27, 27],
+                iconAnchor: [13, 27],
+                popupAnchor:  [1, -24],
+                iconUrl: 'icon/'+split[0]+'.png'
+            });
+
+            return L.marker(latlng, {icon: smallIcon});
+        },
         filter: function(feature) {
             var split = feature.properties.CAUSE.split(", ");
 //            console.log(split);
