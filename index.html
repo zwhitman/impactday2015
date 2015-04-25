@@ -339,8 +339,18 @@
 
 
     <div id="map" style="height:100%" class="leaflet-container leaflet-fade-anim"></div>
-    <div id="legend" style="z-index:9999;position: fixed;bottom:0;right:0;height:300px;width:200px;background:rgba(255,255,255,.8)">
+    <div id="legend" style="z-index:9999;position: fixed;bottom:0;right:0;height:320px;width:220px;background:rgba(255,255,255,.8)">
         <h4>Legend</h4>
+        <ul></ul>
+        <li style="list-style-type: none"><img style="height:30px;margin-right:10px" src="icon/Animals.png">Animals</li>
+        <li style="list-style-type: none"><img style="height:30px;margin-right:10px" src="icon/Civic%20&%20Public%20Affairs.png">Civic & Public Affairs</li>
+        <li style="list-style-type: none"><img style="height:30px;margin-right:10px" src="icon/Community%20&%20Economic%20Development.png">Community Development</li>
+        <li style="list-style-type: none"><img style="height:30px;margin-right:10px" src="icon/Culture%20&%20Arts.png">Culture & Arts</li>
+        <li style="list-style-type: none"><img style="height:30px;margin-right:10px" src="icon/Disaster%20Relief.png">Disaster Relief</li>
+        <li style="list-style-type: none"><img style="height:30px;margin-right:10px" src="icon/Education.png">Education</li>
+        <li style="list-style-type: none"><img style="height:30px;margin-right:10px" src="icon/Environment.png">Environment</li>
+        <li style="list-style-type: none"><img style="height:30px;margin-right:10px" src="icon/Health%20&%20Human%20Services.png">Health Services</li>
+        <li style="list-style-type: none"><img style="height:30px;margin-right:10px" src="icon/Veterans.png">Veterans</li>
     </div>
     <button onclick="$.('#legend').slideToggle()" class='btn btn-default' id='legendButton' style='z-index:10000;position:fixed;bottom:0;right:0;height:50px;width:50px'>
         <i class='fa fa-minus-circle'></i>
@@ -381,6 +391,7 @@
 <script>
     var map = L.map('map').setView([38.9047, -77.0164], 10);
     L.tileLayer('http://{s}.tiles.mapbox.com/v3/zwhitman.l4g921m8/{z}/{x}/{y}.png', {
+//      L.tileLayer('http://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png', {
 //        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
         maxZoom: 18
     }).addTo(map);
@@ -398,7 +409,6 @@
         }).responseText);
     }
 
-//    var filterParams = ['Veterans', 'Community & Economic Development', 'Education'];
     var filterParams = [
         'Animals',
         'Civic & Public Affairs',
@@ -441,23 +451,6 @@
 //        return where;
     }
 
-    var agIcon = L.icon({
-        iconUrl: './icon/agriculture.png',
-        iconSize: [32, 37],
-        iconAnchor: [16, 37],
-        popupAnchor: [0, -28]
-    });
-
-    function style(feature) {
-        return {
-            fillColor: getColor(feature.properties.density),
-            weight: 2,
-            opacity: 1,
-            color: 'white',
-            dashArray: '3',
-            fillOpacity: 0.7
-        };
-    }
 
 
 
@@ -471,7 +464,7 @@
         pointToLayer: function(feature, latlng) {
             var split = feature.properties.CAUSE.split(", ");
             var smallIcon = new L.Icon({
-                iconSize: [27, 27],
+                iconSize: [30, 30],
                 iconAnchor: [13, 27],
                 popupAnchor:  [1, -24],
                 iconUrl: 'icon/'+split[0]+'.png'
@@ -489,11 +482,15 @@
             }
         },
         onEachFeature: function (feature, layer) {
+            var address = feature.properties.ADDRESS.replace(' ','+')+'+'+feature.properties.CITY.replace(' ','+')+'+'+feature.properties.STATE.replace(' ','+')+'+'+feature.properties.ZIPCODE;
+            var park = address.replace('+','_');
             layer.bindPopup("<h4>" + feature.properties.PRO_NAME + "</h4>" +
             "<a href='Countdown/index.html'><button class='btn btn-default' style='width:100%'>REGISTER NOW" + "</button></a>" +
             "<h6>" + feature.properties.DESC_ACT+"</h6>" +
-            "<h6>Address: " + feature.properties.ADDRESS +"</h6>" +
-            "<h6>Cause: " + feature.properties.CAUSE +"</h6>");
+            "<h6>Cause: " + feature.properties.CAUSE +"</h6>"+
+            "<h6>Address: " + feature.properties.ADDRESS +", "+ feature.properties.CITY + " " + feature.properties.STATE + "</h6>" +
+            "<a href='https://www.google.com/maps/dir/Current+Location/" + address + "'" + " target='_blank'><button class='btn btn-default btn-sm' style='width:50%'>DIRECTIONS" + "</button></a>" +
+            "<a href='http://en.parkopedia.com/parking/" + park + "' target='_blank'><button class='btn btn-default btn-sm' style='width:50%'>PARKING" + "</button></a>");
         }
     });
 
@@ -506,6 +503,17 @@
 //        filterParams = [string];
         filterParams = generateWhere();
         var geoJsonLayer = L.geoJson(geoJsonData, {
+            pointToLayer: function(feature, latlng) {
+                var split = feature.properties.CAUSE.split(", ");
+                var smallIcon = new L.Icon({
+                    iconSize: [30, 30],
+                    iconAnchor: [13, 27],
+                    popupAnchor:  [1, -24],
+                    iconUrl: 'icon/'+split[0]+'.png'
+                });
+
+                return L.marker(latlng, {icon: smallIcon});
+            },
             filter: function(feature) {
                 var split = feature.properties.CAUSE.split(", ");
 //                console.log(split);
