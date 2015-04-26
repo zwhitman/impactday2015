@@ -49,7 +49,7 @@
 <div id="wrapper">
 
     <!-- Sidebar -->
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <nav style="z-index: 999999" class="navbar navbar-default navbar-fixed-top" role="navigation">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -197,7 +197,7 @@
                                     </a>
                                 </li>
                         -->
-                        <li class="divider"></li>
+                        <!--<li class="divider"></li>-->
                         <!--<li class="message-preview">-->
                             <!--<a href="#" onclick="relocate(29.7628, -95.3831)">-->
                                 <!--<span class="avatar"><img src="img/hou.png" style="height:50px;width:50px"></span>-->
@@ -425,9 +425,9 @@
     function generateWhere() {
         var sbv = document.getElementsByName('sbv');
         if (sbv[0].checked) {
-            sbv2 = "Yes";
+            sbv2 = "TRUE";
         } else {
-            sbv2 = "No";
+            sbv2 = "FALSE";
         }
 
         filter = [];
@@ -454,7 +454,9 @@
 
 
 
-    var jsonUrl = "https://services1.arcgis.com/fcrLbZIfZI20fNqr/arcgis/rest/services/Volunteer_2015/FeatureServer/0/query?where=&objectIds=&time=&geometry=%7B%22xmin%22%3A-15914952.527620565%2C%22ymin%22%3A1983252.9978282703%2C%22xmax%22%3A-1953270.6891671233%2C%22ymax%22%3A4918434.883978258%2C%22spatialReference%22%3A%7B%22wkid%22%3A102100%7D%7D&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&distance=&units=esriSRUnit_Meter&outFields=*&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&outSR=%7Bwkid%3A+4326%7D&returnIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&quantizationParameters=&f=geojson&token=";
+//    var jsonUrl = "https://services1.arcgis.com/fcrLbZIfZI20fNqr/arcgis/rest/services/Volunteer_2015/FeatureServer/0/query?where=&objectIds=&time=&geometry=%7B%22xmin%22%3A-15914952.527620565%2C%22ymin%22%3A1983252.9978282703%2C%22xmax%22%3A-1953270.6891671233%2C%22ymax%22%3A4918434.883978258%2C%22spatialReference%22%3A%7B%22wkid%22%3A102100%7D%7D&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&distance=&units=esriSRUnit_Meter&outFields=*&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&outSR=%7Bwkid%3A+4326%7D&returnIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&quantizationParameters=&f=geojson&token=";
+    var jsonUrl = "https://services1.arcgis.com/fcrLbZIfZI20fNqr/arcgis/rest/services/Impact_Day_2015/FeatureServer/0/query?where=1%3D1&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&distance=&units=esriSRUnit_Meter&outFields=*&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&outSR=&returnIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&quantizationParameters=&f=pgeojson&token=";
+
     var geoJsonData = getJson(jsonUrl);
     var markers = new L.MarkerClusterGroup();
     var geoJsonLayer = L.geoJson(geoJsonData, {
@@ -482,13 +484,13 @@
             }
         },
         onEachFeature: function (feature, layer) {
-            var address = feature.properties.ADDRESS.replace(' ','+')+'+'+feature.properties.CITY.replace(' ','+')+'+'+feature.properties.STATE.replace(' ','+')+'+'+feature.properties.ZIPCODE;
+            var address = feature.properties.ADDRESS.replace(' ','+')+'+'+feature.properties.CITY_1.replace(' ','+')+'+'+feature.properties.STATE.replace(' ','+')+'+'+feature.properties.ZIPCODE;
             var park = address.replace('+','_');
             layer.bindPopup("<h4>" + feature.properties.PRO_NAME + "</h4>" +
             "<a href='Countdown/index.html'><button class='btn btn-default' style='width:100%'>REGISTER NOW" + "</button></a>" +
             "<h6>" + feature.properties.DESC_ACT+"</h6>" +
             "<h6>Cause: " + feature.properties.CAUSE +"</h6>"+
-            "<h6>Address: " + feature.properties.ADDRESS +", "+ feature.properties.CITY + " " + feature.properties.STATE + "</h6>" +
+            "<h6>Address: " + feature.properties.ADDRESS +", "+ feature.properties.CITY_1 + " " + feature.properties.STATE + "</h6>" +
             "<a href='https://www.google.com/maps/dir/Current+Location/" + address + "'" + " target='_blank'><button class='btn btn-default btn-sm' style='width:50%'>DIRECTIONS" + "</button></a>" +
             "<a href='http://en.parkopedia.com/parking/" + park + "' target='_blank'><button class='btn btn-default btn-sm' style='width:50%'>PARKING" + "</button></a>");
         }
@@ -515,13 +517,26 @@
                 return L.marker(latlng, {icon: smallIcon});
             },
             filter: function(feature) {
+                var sbv = document.getElementsByName('sbv');
                 var split = feature.properties.CAUSE.split(", ");
-//                console.log(split);
-                for(i in filterParams){
-                    if($.inArray(filterParams[i],split) != -1){
-                        return feature.properties.CAUSE
+                if (sbv[0].checked) {
+//                    sbv2 = "TRUE";
+                    for(i in filterParams){
+                        if($.inArray(filterParams[i],split) != -1){
+                            if(feature.properties.IS_SBV == "TRUE"){
+                                return feature.properties.CAUSE
+                            }
+                        }
+                    }
+                } else {
+//                    sbv2 = "FALSE";
+                    for(i in filterParams){
+                        if($.inArray(filterParams[i],split) != -1){
+                            return feature.properties.CAUSE
+                        }
                     }
                 }
+//                console.log(split);
             },
             onEachFeature: function (feature, layer) {
                 layer.bindPopup("<h4>" + feature.properties.PRO_NAME + "</h4>" +
@@ -531,7 +546,6 @@
                 "<h6>Cause: " + feature.properties.CAUSE +"</h6>");
             }
         });
-        console.log(filterParams);
         markers.addLayer(geoJsonLayer);
         map.addLayer(markers);
     }
@@ -540,55 +554,56 @@
         map.setView([lat,lon], 10)
     }
 
-//    $("[name='sbv']").bootstrapSwitch('onText', 'YES');
-//    $("[name='sbv']").bootstrapSwitch('offText', 'NO');
-//    $("[name='sbv']").on('switchChange.bootstrapSwitch', function (event, state) {
+    $("[name='sbv']").bootstrapSwitch('onText', 'YES');
+    $("[name='sbv']").bootstrapSwitch('offText', 'NO');
+    $("[name='sbv']").on('switchChange.bootstrapSwitch', function (event, state) {
+        filterNew();
 //        filterMap(layer, tableId, map);
-//    });
+    });
 
-    $("[id='animals_check']").bootstrapSwitch('labelText', '<img src="icon/agriculture.png" height="20px" width="20px">');
+    $("[id='animals_check']").bootstrapSwitch('labelText', '<img src="icon/Animals.png" height="20px" width="20px">');
     $("[id='animals_check']").on('switchChange.bootstrapSwitch', function (event, state) {
         filterNew();
 //        generateWhere();
 //        filterMap(layer, tableId, map);
     });
 
-    $("[id='comm_check']").bootstrapSwitch('labelText', '<img src="icon/realestate.png" height="20px" width="20px">');
+    $("[id='comm_check']").bootstrapSwitch('labelText', '<img src="icon/Community%20&%20Economic%20Development.png" height="20px" width="20px">');
     $("[id='comm_check']").on('switchChange.bootstrapSwitch', function (event, state) {
         filterNew();
 //        filterMap(layer, tableId, map);
     });
 
-    $("[id='civic_check']").bootstrapSwitch('labelText', '<img src="icon/museum.png" height="20px" width="20px">');
+    $("[id='civic_check']").bootstrapSwitch('labelText', '<img src="icon/Civic%20&%20Public%20Affairs.png" height="20px" width="20px">');
     $("[id='civic_check']").on('switchChange.bootstrapSwitch', function (event, state) {
         filterNew();
 //        filterMap(layer, tableId, map);
     });
-    $("[id='armed_check']").bootstrapSwitch('labelText', '<img src="icon/police.png" height="20px" width="20px">');
+    $("[id='armed_check']").bootstrapSwitch('labelText', '<img src="icon/Veterans.png" height="20px" width="20px">');
     $("[id='armed_check']").on('switchChange.bootstrapSwitch', function (event, state) {
         filterNew();
     });
 
-    $("[id='disaster_check']").bootstrapSwitch('labelText', '<img src="icon/hospitals.png" height="20px" width="20px">');
+    $("[id='disaster_check']").bootstrapSwitch('labelText', '<img src="icon/Disaster%20Relief.png" height="20px" width="20px">');
     $("[id='disaster_check']").on('switchChange.bootstrapSwitch', function (event, state) {
         filterNew();
     });
-    $("[id='education_check']").bootstrapSwitch('labelText', '<img src="icon/schools.png" height="20px" width="20px">');
+    $("[id='education_check']").bootstrapSwitch('labelText', '<img src="icon/Education.png" height="20px" width="20px">');
     $("[id='education_check']").on('switchChange.bootstrapSwitch', function (event, state) {
         filterNew();
     });
 
-    $("[id='health_check']").bootstrapSwitch('labelText', '<img src="icon/pharmacy_plus.png" height="20px" width="20px">');
+    $("[id='health_check']").bootstrapSwitch('labelText', '<img src="icon/Health%20&%20Human%20Services.png" height="20px" width="20px">');
     $("[id='health_check']").on('switchChange.bootstrapSwitch', function (event, state) {
         filterNew();
     });
 
-    $("[id='environment_check']").bootstrapSwitch('labelText', '<img src="icon/tree.png" height="20px" width="20px">');
+    $("[id='environment_check']").bootstrapSwitch('labelText', '<img src="icon/Environment.png" height="20px" width="20px">');
     $("[id='environment_check']").on('switchChange.bootstrapSwitch', function (event, state) {
         filterNew();
     });
 
-    $("[id='culture_check']").bootstrapSwitch('labelText', '<img src="icon/arts.png" height="20px" width="20px">');
+    $("[id='culture_check']").bootstrapSwitch('labelText', '<img src="icon/Culture%20&%20Arts.png" height="20px" width="20px">');
     $("[id='culture_check']").on('switchChange.bootstrapSwitch', function (event, state) {
         filterNew();
     });
