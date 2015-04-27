@@ -80,9 +80,9 @@
                             <hr>
 
                             <h4>Key Dates</h4>
-                            - Projects Posted: Friday, 4/24.<br>
+                            <!--- Projects Posted: Friday, 4/24.<br>-->
                             - Online Registration: Friday, 5/1 to Friday, 5/8.<br>
-                            - <span class="impact">IMPACT Day 2015</span>: Friday, June 6.
+                            - <span class="impact">IMPACT Day 2015</span>: Friday, June 5.
 
                             <hr>
 
@@ -90,9 +90,9 @@
 
                             <p>
                                 Greater Washington area practitioners can check out the <a
-                                    href="https://www.yammer.com/deloitte.com/#/threads/inGroup?type=in_group&feedId=1419576">IMPACT
+                                    href="https://www.yammer.com/deloitte.com/#/threads/inGroup?type=in_group&feedId=1419576" target='_blank'>IMPACT
                                 Day
-                                2014 Yammer Page</a> for more information or to post questions.
+                                2015 Yammer Page</a> for more information or to post questions.
                             </p>
                         </li>
                     </ul>
@@ -108,7 +108,7 @@
                             <p>
                                 The <span class="impact">IMPACT Day</span> map, built by <span
                                     class="del">Deloitte's</span> <a
-                                    href="https://www.yammer.com/deloitte.com/#/threads/inGroup?type=in_group&feedId=280371">Geospatial
+                                    href="https://www.yammer.com/deloitte.com/#/threads/inGroup?type=in_group&feedId=280371" target="_blank">Geospatial
                                 Analytics Practice</a> provides a tool for practitioners to search for and learn about
                                 projects in their
                                 community.
@@ -390,10 +390,13 @@
 
 <script>
     var map = L.map('map').setView([38.9047, -77.0164], 10);
-    L.tileLayer('http://{s}.tiles.mapbox.com/v3/zwhitman.l4g921m8/{z}/{x}/{y}.png', {
+//    L.tileLayer('http://{s}.tiles.mapbox.com/v3/zwhitman.l4g921m8/{z}/{x}/{y}.png', {
+      L.tileLayer('http://{s}.tiles.mapbox.com/v3/zwhitman.m1f653nj/{z}/{x}/{y}.png', {
 //      L.tileLayer('http://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png', {
 //        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-        maxZoom: 18
+        maxZoom: 18,
+        minZoom: 4
+
     }).addTo(map);
 
     function getJson(url) {
